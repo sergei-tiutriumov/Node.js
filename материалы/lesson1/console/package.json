@@ -1,0 +1,22 @@
+{
+  "name": "console-app",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Простое консольное приложение для преобразования величин из дюймов в сантиметры",
+  "main": "index.js",
+  "scripts": {
+    "convert": "node index.js"
+  },
+  "keywords": [
+    "console",
+    "convertor",
+    "inches",
+    "centimetres"
+  ],
+  "author": "Читатель",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "dotenv": "^16.0.3"
+  }
+}

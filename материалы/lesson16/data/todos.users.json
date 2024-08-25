@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "64919057da62a9ea3d15fad0"
+  },
+  "username": "ivanov",
+  "password": {
+    "$binary": {
+      "base64": "KM5g6JPCKy2fqlySzdpD8Ppnr62Fbz5IQlxxkmLiSDg=",
+      "subType": "00"
+    }
+  },
+  "salt": {
+    "$binary": {
+      "base64": "5OpKB9fMUxMBuVKf/CmPaA==",
+      "subType": "00"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "64919067da62a9ea3d15fad3"
+  },
+  "username": "petrov",
+  "password": {
+    "$binary": {
+      "base64": "lxS4foWp6qHBhxoEqWOuEbgzgER6fMkzsHISG3mTtxw=",
+      "subType": "00"
+    }
+  },
+  "salt": {
+    "$binary": {
+      "base64": "4kL4+sLmqvvTwuJu7AAlzQ==",
+      "subType": "00"
+    }
+  }
+}]

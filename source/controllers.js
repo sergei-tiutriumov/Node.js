@@ -1,4 +1,6 @@
-export function mainPage(res){
+import { loadList, loadItem } from './model.js';
+
+export async function mainPage(res) {
     let s = '<!doctype html>' +
             '<html>' +
             '   <head>' +
@@ -6,21 +8,34 @@ export function mainPage(res){
             '       <title>Список запланированных дел</title>' +
             '   </head>' +
             '   <body>' +
-            '       <h1>запланированные дела</h1>' +
-            '   </body>' +
+            '       <h1>запланированные дела</h1>';
+    const list = await loadList();
+    for (let t of list)
+        s +=`   <h2><a href="/${t._id}/">${t.title}</a><h2>` +
+            `   <p>${t.desc}</p>` +
+            '   <p>&nbsp;</p>';
+    s +=    '   </body>' +
             '</html>';
+    res.writeHead(200, {'Content-Type': 'text/html',  'charset': 'UTF-8'})
     res.end(s)
 }
 
-export function detailPage(res, id) {
+export async function detailPage(res, id) {
+    res.writeHead(200, {'Content-Type': 'text/html',  'charset': 'UTF-8'})
+    const t = await loadItem(id);
+    if (!t) {
+        errorPage(res);
+        return;
+    }
     res.end('<!doctype html>' +
             '<html>' +
             '   <head>' +
             '       <meta charset="UTF-8">' +
-            '       <title>Дело :: Список запланированных дел</title>' +
+            `       <title> ${t.title} :: Список запланированных дел</title>` +
             '   </head>' +
             '   <body>' +
-            '       <h1>Дело</h1>' +
+            `       <h1>${t.title}</h1>` +
+            `        <p>${t.desc}</p>` +
             '   </body>' +
             '</html>');
 
@@ -28,6 +43,7 @@ export function detailPage(res, id) {
 
 export function errorPage(res){
     res.statusCode = 404;
+    res.writeHead(200, {'Content-Type': 'text/html',  'charset': 'UTF-8'})
     res.end('<!doctype html>' +
             '<html>' +
             '   <head>' +
@@ -40,5 +56,5 @@ export function errorPage(res){
             '   </body>' +
             '</html>');
 
-    )
+    
 }
