@@ -26,7 +26,7 @@
 
  const port = 8000;
 
- const reDetail = /^\/([0-9abcdef]{24})$/;
+ const reDetail = /^\/([0-9abcdef]{24})/;
 
  const server = createServer();
  server.addListener('request', (req, res) => {
