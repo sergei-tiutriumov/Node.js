@@ -1,0 +1,20 @@
+{
+  "name": "express-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "serve": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4"
+  },
+  "nodemonConfig": {
+    "ignore": ["data"]
+  }
+}
