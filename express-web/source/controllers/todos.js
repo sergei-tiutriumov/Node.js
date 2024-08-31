@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { getList, getItem } from '../models/todos.js';
+=======
+import { getList } from '../models/todos.js';
+>>>>>>> cf9af8ae5374dcf7239aad4cbda66c42e56cb990
 
 export function mainPage(req, res) {
     const list = getList();
