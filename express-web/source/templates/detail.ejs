@@ -1,0 +1,7 @@
+<%- include('includes/header.ejs') %>
+    <h2><%= todo.title %></h2>
+    <% if(todo.desc) { %>
+    <p><%= todo.desc %></p>
+    <% } %>
+    <p>Создано: <%= (new Date(todo.createdAt)).toLocaleString() %></p>
+<%- include('includes/footer.ejs') %>
