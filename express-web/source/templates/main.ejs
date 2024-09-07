@@ -1,4 +1,10 @@
 <%- include('includes/header.ejs') %>
+        <form method="get" style="text-align: right;">
+            <input name="search" value="<%= req.query.search %>"
+                style="display: inline; width:200px;">
+            <input type="submit" value="Найти"
+                style="display: inline;">
+        </form>
         <h1>Запланированные дела</h1>
         <% for (let t of todos) { 
             %>
