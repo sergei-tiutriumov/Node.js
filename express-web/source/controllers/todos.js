@@ -16,7 +16,6 @@ export function mainPage(req, res) {
         });
     }
     res.render('main', {
-        req: req,
         todos: list,
         title: 'Главная'
         });
