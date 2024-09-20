@@ -1,4 +1,5 @@
 import { getList, getItem, addItem, setDoneItem, deleteItem } from '../models/todos.js';
+import createError from 'http-errors';
 
 export function mainPage(req, res) {
     let list = getList();
@@ -25,8 +26,7 @@ export function  detailPage(req,res) {
         const t = getItem(req.params.id);
 
         if(!t) {
-                errorPage(req,res);
-                return;
+                throw createError(404, ' Ваще ничего не нашел  ¯\\_(ツ)_/¯ ');
         }
         res.render('detail', {
                 todo: t,
@@ -34,12 +34,12 @@ export function  detailPage(req,res) {
         });
 }
 
-export function errorPage(req, res) {
-        res.status(404);
-        res.render('404', {
-                title: 'Ошибка!'
-        });
-}
+// export function errorPage(req, res) {
+//         res.status(404);
+//         res.render('404', {
+//                 title: 'Ошибка!'
+//         });
+// }
 
 export function addPage(req, res) {
         res.render('add', { title: 'Добавление дела'});
@@ -60,12 +60,12 @@ export function setDone(req, res) {
         if (setDoneItem(req.params.id))
                 res.redirect('/');
         else
-                errorPage(req, res);
+                throw createError(404,"Запрошенное дело не существует");
 }
 
 export function remove (req, res) {
         if(deleteItem(req.params.id))
                 res.redirect('/');
         else
-                errorPage(req, res);
+                throw createError(404,"Запрошенное дело не существует");
 }
